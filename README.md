@@ -4,9 +4,10 @@ a tool to pick up the Color Value  within any frame from a HTML5 Video . support
 [view demo](https://wendychengc.github.io/video-color-picker/demo/demo.html)
 
 video resource used in this demo comes from threejs.org/examples/
+
 noticed that your video resource host need to allow CORS , otherwise you cannot use getPixelColor on your canvas, and the project won't work.
 
-use as jQuery plugin
+## use as jQuery plugin
 ```javascript
 var videoobj = $("#videodom").colorvideo({
 	videoUrl: "https://threejs.org/examples/textures/sintel.mp4",
@@ -33,7 +34,7 @@ $("#pausebtn").click(function() {
 })
 ```
 
-use as Vue component
+## use as Vue component
 ```javascript
 <color-video
       videoWidth=480
