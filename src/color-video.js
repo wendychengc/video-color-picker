@@ -36,7 +36,7 @@
       var colorvideoDom = "<div id='color-video' style='height:" + opts.videoHeight + "px;width:" + opts.videoWidth + "px'> \
         <canvas id='mycanvas' width=" + opts.videoWidth + " height=" + opts.videoHeight +
         "></canvas>\
-        <video id='myvideo' crossOrigin='*' src=" + opts.videoUrl + " style='display:none' loop=" + opts.loop + " autoplay=" + opts.autoplay + " muted=" + opts.muted + "></video>\
+        <video id='myvideo' crossOrigin='*' webkit-playsinline src=" + opts.videoUrl + " style='display:none' loop=" + opts.loop + " autoplay=" + opts.autoplay + " muted=" + opts.muted + "></video>\
         </div>";
       $(_this).html(colorvideoDom);
       canvasOffset = offset($(_this).find("#mycanvas")[0])

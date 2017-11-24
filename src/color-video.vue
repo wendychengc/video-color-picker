@@ -7,7 +7,7 @@
 <template>
 <section class="color-video" :style="'height:'+videoHeight+'px;width:'+videoWidth+'px'" @click="clickCanvas">
     <canvas ref="mycanvas" :width="videoWidth" :height="videoHeight" v-on:mousemove="tranceCanvas"></canvas>
-    <video ref="myvideo" crossOrigin="*" :src="videoUrl" @timeupdate="videoTimeupdate" style="display:none" :loop="loop" :autoplay="autoplay" :muted="muted"></video>
+    <video ref="myvideo" crossOrigin="*" webkit-playsinline :src="videoUrl" @timeupdate="videoTimeupdate" style="display:none" :loop="loop" :autoplay="autoplay" :muted="muted"></video>
 </section>
 </template>
 <script>
