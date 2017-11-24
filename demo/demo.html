@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Video Color Picker Demo - github@wendychengc</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<style>
+		.page {
+			text-align: center;
+		}
+		#title{
+			font-size:24px;
+			line-height: 50px;
+			text-align: center;
+		}
+
+		#videodom {
+			position: relative;
+			display: inline-block;
+		}
+
+		.controls .results {
+			text-align: center;
+		}
+
+		.controls a {
+			cursor: pointer;
+			height: 30px;
+			line-height: 30px;
+			font-size: 14px;
+			width: 80px;
+			border: 1px solid #999;
+			display: inline-block;
+			color: #999;
+		}
+
+		.controls a:hover {
+			background: #ddd;
+		}
+
+		.results {
+			position: relative;
+			padding-top: 10px;
+			margin-top: 20px;
+		}
+
+		.color-box {
+			display: inline-block;
+			height: 36px;
+			width: 36px;
+			border: 1px solid black;
+			position: absolute;
+			top: 0;
+		}
+
+		.color-value {
+			display: inline-block;
+			font-size: 18px;
+			color: #999;
+			margin-left: 50px;
+		}
+
+		.color-value span {
+			color: black;
+			display: inline-block;
+			width: 150px;
+		}
+
+		.color-value span.hex {
+			width: 90px;
+		}
+		#tail{
+			margin-top:100px;
+			font-size: 14px;
+		}
+	</style>
+
+	<body>
+		<div class="page">
+			<div id="title">CLICK to pick up a color</div>
+			<div id="videodom"></div>
+			<div class="controls">
+				<a id="playbtn">PLAY</a>
+				<a id="pausebtn">PAUSE</a>
+			</div>
+			<div class="results">
+				<div class="color-box" id="colorbox"></div>
+				<div class="color-value">RGB:<span id="colorrgb">rgb:(-,-,-)</span> HEX:<span class="hex" id="colorhex">hex:#---</span></div>
+			</div>
+			<div id="tail">view source: <a href="https://github.com/wendychengc/video-color-picker/tree/master" target="_blank">https://github.com/wendychengc/video-color-picker/tree/master</a></div>
+		</div>
+	</body>
+	<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="color-video.js"></script>
+	<script>
+
+
+		var videoobj = $("#videodom").colorvideo({
+			videoUrl: "https://threejs.org/examples/textures/sintel.mp4",
+			videoWidth: 480,
+			videoHeight: 204,
+			onVideoClick: function(e, colorData) {
+				$("#colorrgb").html(colorData.rgb.toString())
+				$("#colorhex").html(colorData.hex)
+				$("#colorbox").css("background", colorData.hex)
+			},
+			onVideoHover: function(e, colorData) {
+				// $("#colorrgb").html(colorData.rgb.toString())
+				// $("#colorhex").html(colorData.hex)
+				// $("#colorbox").css("background", colorData.hex)
+			}
+		})
+		$("#playbtn").click(function() {
+			videoobj.play()
+		})
+		$("#pausebtn").click(function() {
+			videoobj.pause()
+		})
+	</script>
+
+</html>
