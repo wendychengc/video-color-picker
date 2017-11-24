@@ -45,4 +45,20 @@ $("#pausebtn").click(function() {
       @onVideoClick="myclickhandler"
       @onVideoHover="myhoverhandler">
 </color-video>
+
+methods:{
+      playvideo(){
+        this.$refs.colorvideo.$refs.myvideo.play()
+      },
+      pausevideo(){
+        this.$refs.colorvideo.$refs.myvideo.pause()
+      },
+      myclickhandler: function (vcolor) {
+      	// if you need to get color data when click, enable this
+        // this.pickcolor=vcolor
+      },
+      myhoverhandler: function (vcolor) {
+        this.pickcolor=vcolor
+      }
+}
 ```
